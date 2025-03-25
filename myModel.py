@@ -86,7 +86,7 @@ class MyModel:
 		elif self.model_name.lower() == 'prot_bert':
 			from transformers import BertTokenizer
 			self.tokenizer = BertTokenizer.from_pretrained(
-				self.path+self.dataset_name, do_lower_case = False)
+				'Rostlab/prot_bert_bfd', do_lower_case = False)
 			if self.task.lower() == 'single_label':
 				from transformers import \
 					BertModel as \
@@ -96,7 +96,7 @@ class MyModel:
 					DistilBertForSequenceClassification as \
 					transformer_model
 		if self.task.lower() == 'single_label':
-			model = transformer_model.from_pretrained(self.path+self.dataset_name, output_attentions=True,
+			model = transformer_model.from_pretrained('Rostlab/prot_bert_bfd', output_attentions=True,
 														output_hidden_states=True)
 		else:
 			model = transformer_model.from_pretrained(self.path+self.dataset_name, num_labels = self.labels, output_attentions=True,
