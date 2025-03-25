@@ -127,7 +127,7 @@ class MyModel:
 					self.trainer.model.base_model.encoder.layer[i].attention.self.key.weight.cpu().detach().numpy())
 				self.query_list.append(
 					self.trainer.model.base_model.encoder.layer[i].attention.self.query.weight.cpu().detach().numpy())
-		if self.model_name.lower() == 'prot_bert':
+		elif self.model_name.lower() == 'prot_bert':
 			self.layers = 30
 			self.heads = 16
 			self.embedding_size = 1024
