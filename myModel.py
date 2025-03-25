@@ -93,7 +93,7 @@ class MyModel:
 					transformer_model
 			else:
 				from myTransformer import \
-					BertModel as \
+					DistilBertForSequenceClassification as \
 					transformer_model
 		if self.task.lower() == 'single_label':
 			model = transformer_model.from_pretrained(self.path+self.dataset_name, output_attentions=True,
