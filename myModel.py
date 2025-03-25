@@ -90,7 +90,7 @@ class MyModel:
 			model = transformer_model.from_pretrained(self.path+self.dataset_name, num_labels = self.labels, output_attentions=True,
 														output_hidden_states=True)
 		# utils.logging.disable_progress_bar() #Enable this line to allow it to run in terminal. Comment this line to run it in notebooks/colab
-		training_arguments = TrainingArguments(evaluation_strategy='epoch', save_strategy='epoch', logging_strategy='epoch',
+		training_arguments = TrainingArguments(evaluation_strategy='no', save_strategy='epoch', logging_strategy='epoch',
 												log_level='critical', output_dir='./results', num_train_epochs=1,
 												per_device_train_batch_size=8, per_device_eval_batch_size=8,
 												warmup_steps=200, weight_decay=0.01, logging_dir='./logs'
