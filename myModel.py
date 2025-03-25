@@ -57,6 +57,7 @@ class MyModel:
 	def __load_model__(self):
 		"""This function identifies and loads the correct fine-tuned model
 		"""
+		print("BertModel" in globals())  # Devuelve True si está importado, False si no
 		if self.cased:
 			cs = '-cased'
 		else:
