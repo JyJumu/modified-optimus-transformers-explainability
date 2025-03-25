@@ -134,9 +134,9 @@ class MyModel:
 			self.ehe = 64  # 1024/16
 			for i in range(self.layers):
 				self.key_list.append(
-					self.trainer.model.bert.encoder.layer[i].attention.self.key.weight.cpu().detach().numpy())
+					self.trainer.bert.encoder.layer[i].attention.self.key.weight.cpu().detach().numpy())
 				self.query_list.append(
-					self.trainer.model.bert.encoder.layer[i].attention.self.query.weight.cpu().detach().numpy())
+					self.trainer.bert.encoder.layer[i].attention.self.query.weight.cpu().detach().numpy())
 		else:
 			self.layers = 6
 			self.heads = 12
