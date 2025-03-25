@@ -127,17 +127,16 @@ class MyModel:
 					self.trainer.model.base_model.encoder.layer[i].attention.self.key.weight.cpu().detach().numpy())
 				self.query_list.append(
 					self.trainer.model.base_model.encoder.layer[i].attention.self.query.weight.cpu().detach().numpy())
-		elif self.model_name.lower() == 'prot_bert':
-		        self.layers = 30  # ProtBERT tiene 30 capas
-		        self.heads = 16  # ProtBERT tiene 16 cabezas de atención
-		        self.embedding_size = 1024  # ProtBERT tiene embeddings de tamaño 1024
-		        self.ehe = 64  # 1024/16
-		        for i in range(self.layers):
+		if self.model_name.lower() == 'prot_bert':
+			self.layers = 30
+			self.heads = 16
+			self.embedding_size = 1024
+			self.ehe = 64  # 1024/16
+			for i in range(self.layers):
 				self.key_list.append(
 					self.trainer.model.bert.encoder.layer[i].attention.self.key.weight.cpu().detach().numpy())
 				self.query_list.append(
 					self.trainer.model.bert.encoder.layer[i].attention.self.query.weight.cpu().detach().numpy())
-		
 		else:
 			self.layers = 6
 			self.heads = 12
