@@ -1,7 +1,7 @@
 import numpy as np
 from torch import tensor
 from torch.utils.data import Dataset as TDataset
-from transformers import Trainer, TrainingArguments
+from transformers import Trainer, TrainingArguments, BertModel
 
 
 class MyDataset(TDataset):
