@@ -96,7 +96,7 @@ class MyModel:
 					DistilBertForSequenceClassification as \
 					transformer_model
 		if self.task.lower() == 'single_label':
-			model = transformer_model.from_pretrained('Rostlab/prot_bert_bfd', output_attentions=True,
+			model = BertModel.from_pretrained('Rostlab/prot_bert_bfd', output_attentions=True,
 														output_hidden_states=True)
 		else:
 			model = transformer_model.from_pretrained(self.path+self.dataset_name, num_labels = self.labels, output_attentions=True,
