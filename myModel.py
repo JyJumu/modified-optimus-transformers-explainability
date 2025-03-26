@@ -62,13 +62,25 @@ class MyModel:
 			cs = '-cased'
 		else:
 			cs = '-uncased'
-		if self.model_name.lower() == 'bert':
+		if self.model_name.lower() == 'bert_ant':
 			from transformers import BertTokenizerFast
 			self.tokenizer = BertTokenizerFast.from_pretrained(
 				'bert-base'+cs)
 			if self.task.lower() == 'single_label':
 				from transformers import \
 					BertForSequenceClassification as transformer_model
+			else:
+				from myTransformer import \
+					BertForMultilabelSequenceClassification as \
+					transformer_model
+		elif self.model_name.lower() == 'bert':
+			from transformers import BertTokenizerFast
+			self.tokenizer = BertTokenizer.from_pretrained(
+				self.path+self.dataset_name, do_lower_case = False)
+			if self.task.lower() == 'single_label':
+				from transformers import \
+					BertForSequenceClassification as \
+					transformer_model
 			else:
 				from myTransformer import \
 					BertForMultilabelSequenceClassification as \
