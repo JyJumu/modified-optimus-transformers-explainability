@@ -75,7 +75,7 @@ class MyModel:
 					transformer_model
 		elif self.model_name.lower() == 'bert':
 			from transformers import BertTokenizerFast
-			self.tokenizer = BertTokenizer.from_pretrained(
+			self.tokenizer = BertTokenizerFast.from_pretrained(
 				self.path+self.dataset_name, do_lower_case = False)
 			if self.task.lower() == 'single_label':
 				from transformers import \
